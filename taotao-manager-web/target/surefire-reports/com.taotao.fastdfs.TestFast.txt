@@ -1,0 +1,29 @@
+-------------------------------------------------------------------------------
+Test set: com.taotao.fastdfs.TestFast
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 12.524 sec <<< FAILURE!
+com.taotao.fastdfs.TestFast.testupload()  Time elapsed: 0.005 sec  <<< FAILURE!
+java.io.FileNotFoundException: E:\MYCODE\study\javaeecode\taotao\taotao-manager-web\src\main\resources\resource\fastdfs.conf (系统找不到指定的文件。)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at java.io.FileInputStream.<init>(FileInputStream.java:93)
+	at java.io.FileReader.<init>(FileReader.java:58)
+	at org.csource.common.IniFileReader.loadFromFile(IniFileReader.java:134)
+	at org.csource.common.IniFileReader.<init>(IniFileReader.java:32)
+	at org.csource.fastdfs.ClientGlobal.init(ClientGlobal.java:45)
+	at com.taotao.fastdfs.TestFast.testupload(TestFast.java:22)
+
+com.taotao.fastdfs.TestFast.testFastClient()  Time elapsed: 0.001 sec  <<< FAILURE!
+java.io.FileNotFoundException: E:\MYCODE\study\javaeecode\taotao\taotao-manager-web\src\main\resources\resource\fastdfs.conf (系统找不到指定的文件。)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at java.io.FileInputStream.<init>(FileInputStream.java:93)
+	at java.io.FileReader.<init>(FileReader.java:58)
+	at org.csource.common.IniFileReader.loadFromFile(IniFileReader.java:134)
+	at org.csource.common.IniFileReader.<init>(IniFileReader.java:32)
+	at org.csource.fastdfs.ClientGlobal.init(ClientGlobal.java:45)
+	at com.taotao.web.util.FastDFSClient.<init>(FastDFSClient.java:21)
+	at com.taotao.fastdfs.TestFast.testFastClient(TestFast.java:44)
+

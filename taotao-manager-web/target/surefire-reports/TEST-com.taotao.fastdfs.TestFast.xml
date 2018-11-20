@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="3" failures="2" name="com.taotao.fastdfs.TestFast" time="12.523" errors="0" skipped="0">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="C:\Java\jdk1.8.0_92\jre\bin"/>
+    <property name="java.vm.version" value="25.92-b14"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="maven.multiModuleProjectDirectory" value="E:\MYCODE\study\javaeecode\taotao\taotao-manager-web"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=";"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="CN"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="E:\MYCODE\study\javaeecode\taotao\taotao-manager-web"/>
+    <property name="java.runtime.version" value="1.8.0_92-b14"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="C:\Java\jdk1.8.0_92\jre\lib\endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\UTT\AppData\Local\Temp\"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="classworlds.conf" value="E:\MYCODE\study\javaeecode\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf5359120438105915741.tmp"/>
+    <property name="sun.jnu.encoding" value="GBK"/>
+    <property name="java.library.path" value="C:\Java\jdk1.8.0_92\jre\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Program Files/Java/jre1.8.0_92/bin/server;C:/Program Files/Java/jre1.8.0_92/bin;C:/Program Files/Java/jre1.8.0_92/lib/amd64;C:\ProgramData\Oracle\Java\javapath;D:\hloracle\product\11.2.0\dbhome_1\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Java\jdk1.8.0_92\bin;C:\Java\jdk1.8.0_92\jre\bin;E:\MYCODE\Android\sdk\platform-tools;D:\Program Files\Tomcat8.0.50\bin;E:\MYCODE\Android\sdk\tools;E:\MYCODE\Android\sdk\platform-tools;D:\Program Files (x86)\Tesseract-OCR;C:\Program Files (x86)\GtkSharp\2.12\bin;D:\Program Files\VisualSVN Server\bin;D:\Program Files\TortoiseGit\bin;D:\Program Files\Git\cmd;D:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;D:\mongodb\bin;C:\Users\UTT\AppData\Local\Microsoft\WindowsApps;E:\MYCODE\Android\sdk\bin;D:\Program Files (x86)\Tesseract-OCR;D:\Program Files\apache-maven-3.5.4\bin;D:\mongodb\bin;;E:\MYCODE\study\spring-tool-suite-3.9.5.RELEASE-e4.8.0-win32-x86_64\sts-bundle\sts-3.9.5.RELEASE;;."/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.0"/>
+    <property name="user.home" value="C:\Users\UTT"/>
+    <property name="user.timezone" value="Asia/Shanghai"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="user.name" value="UTT"/>
+    <property name="java.class.path" value="E:\MYCODE\study\spring-tool-suite-3.9.5.RELEASE-e4.8.0-win32-x86_64\sts-bundle\sts-3.9.5.RELEASE\plugins\org.eclipse.m2e.maven.runtime_1.9.0.20180606-2035\jars\plexus-classworlds-2.5.2.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="C:\Java\jdk1.8.0_92\jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -B -gs D:\Program Files\apache-maven-3.5.4\conf\settings.xml -s D:\Program Files\apache-maven-3.5.4\conf\settings.xml install"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="zh"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_92"/>
+    <property name="java.ext.dirs" value="C:\Java\jdk1.8.0_92\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="C:\Java\jdk1.8.0_92\jre\lib\resources.jar;C:\Java\jdk1.8.0_92\jre\lib\rt.jar;C:\Java\jdk1.8.0_92\jre\lib\sunrsasign.jar;C:\Java\jdk1.8.0_92\jre\lib\jsse.jar;C:\Java\jdk1.8.0_92\jre\lib\jce.jar;C:\Java\jdk1.8.0_92\jre\lib\charsets.jar;C:\Java\jdk1.8.0_92\jre\lib\jfr.jar;C:\Java\jdk1.8.0_92\jre\classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="E:\MYCODE\study\javaeecode\taotao\taotao-manager-web\EMBEDDED"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase classname="com.taotao.fastdfs.TestFast" name="com.taotao.fastdfs.TestFast.testService" time="12.517"/>
+  <testcase classname="com.taotao.fastdfs.TestFast" name="com.taotao.fastdfs.TestFast.testupload" time="0.005">
+    <failure message="E:\MYCODE\study\javaeecode\taotao\taotao-manager-web\src\main\resources\resource\fastdfs.conf (系统找不到指定的文件。)" type="java.io.FileNotFoundException">java.io.FileNotFoundException: E:\MYCODE\study\javaeecode\taotao\taotao-manager-web\src\main\resources\resource\fastdfs.conf (系统找不到指定的文件。)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.&lt;init&gt;(FileInputStream.java:138)
+	at java.io.FileInputStream.&lt;init&gt;(FileInputStream.java:93)
+	at java.io.FileReader.&lt;init&gt;(FileReader.java:58)
+	at org.csource.common.IniFileReader.loadFromFile(IniFileReader.java:134)
+	at org.csource.common.IniFileReader.&lt;init&gt;(IniFileReader.java:32)
+	at org.csource.fastdfs.ClientGlobal.init(ClientGlobal.java:45)
+	at com.taotao.fastdfs.TestFast.testupload(TestFast.java:22)
+</failure>
+  </testcase>
+  <testcase classname="com.taotao.fastdfs.TestFast" name="com.taotao.fastdfs.TestFast.testFastClient" time="0.001">
+    <failure message="E:\MYCODE\study\javaeecode\taotao\taotao-manager-web\src\main\resources\resource\fastdfs.conf (系统找不到指定的文件。)" type="java.io.FileNotFoundException">java.io.FileNotFoundException: E:\MYCODE\study\javaeecode\taotao\taotao-manager-web\src\main\resources\resource\fastdfs.conf (系统找不到指定的文件。)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.&lt;init&gt;(FileInputStream.java:138)
+	at java.io.FileInputStream.&lt;init&gt;(FileInputStream.java:93)
+	at java.io.FileReader.&lt;init&gt;(FileReader.java:58)
+	at org.csource.common.IniFileReader.loadFromFile(IniFileReader.java:134)
+	at org.csource.common.IniFileReader.&lt;init&gt;(IniFileReader.java:32)
+	at org.csource.fastdfs.ClientGlobal.init(ClientGlobal.java:45)
+	at com.taotao.web.util.FastDFSClient.&lt;init&gt;(FastDFSClient.java:21)
+	at com.taotao.fastdfs.TestFast.testFastClient(TestFast.java:44)
+</failure>
+  </testcase>
+</testsuite>
