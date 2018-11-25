@@ -1,9 +1,8 @@
 package com.taotao.pojo;
 
-import java.io.Serializable;
 import java.util.Date;
 
-public class TbContentCategory implements Serializable{
+public class TbContentCategory {
     private Long id;
 
     private Long parentId;

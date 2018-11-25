@@ -1,9 +1,8 @@
 package com.taotao.pojo;
 
-import java.io.Serializable;
 import java.util.Date;
 
-public class TbOrderShipping implements Serializable{
+public class TbOrderShipping {
     private String orderId;
 
     private String receiverName;

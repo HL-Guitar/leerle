@@ -1,6 +1,5 @@
 package com.taotao.service.impl;
 
-import java.io.Serializable;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +14,7 @@ import com.taotao.pojo.TbItemExample;
 import com.taotao.service.ItemService;
 
 @Service
-public class ItemServiceImpl implements ItemService,Serializable {
-
+public class ItemServiceImpl implements ItemService {
 @Autowired
 private TbItemMapper mapper;
 	@Override

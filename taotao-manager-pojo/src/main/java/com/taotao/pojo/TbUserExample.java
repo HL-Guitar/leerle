@@ -1,11 +1,10 @@
 package com.taotao.pojo;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class TbUserExample implements Serializable{
+public class TbUserExample {
     protected String orderByClause;
 
     protected boolean distinct;
