@@ -1,9 +1,9 @@
 -------------------------------------------------------------------------------
 Test set: com.taotao.fastdfs.TestFast
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 12.524 sec <<< FAILURE!
-com.taotao.fastdfs.TestFast.testupload()  Time elapsed: 0.005 sec  <<< FAILURE!
-java.io.FileNotFoundException: E:\MYCODE\study\javaeecode\taotao\taotao-manager-web\src\main\resources\resource\fastdfs.conf (系统找不到指定的文件。)
+Tests run: 3, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 4.104 sec <<< FAILURE!
+com.taotao.fastdfs.TestFast.testupload()  Time elapsed: 0.004 sec  <<< FAILURE!
+java.io.FileNotFoundException: E:\MYCODE\study\javaeecode\taotao\taotao-manager-web\src\main\resources\resource\fastdfs.conf (系统找不到指定的路径。)
 	at java.io.FileInputStream.open0(Native Method)
 	at java.io.FileInputStream.open(FileInputStream.java:195)
 	at java.io.FileInputStream.<init>(FileInputStream.java:138)
@@ -14,8 +14,8 @@ java.io.FileNotFoundException: E:\MYCODE\study\javaeecode\taotao\taotao-manager-
 	at org.csource.fastdfs.ClientGlobal.init(ClientGlobal.java:45)
 	at com.taotao.fastdfs.TestFast.testupload(TestFast.java:22)
 
-com.taotao.fastdfs.TestFast.testFastClient()  Time elapsed: 0.001 sec  <<< FAILURE!
-java.io.FileNotFoundException: E:\MYCODE\study\javaeecode\taotao\taotao-manager-web\src\main\resources\resource\fastdfs.conf (系统找不到指定的文件。)
+com.taotao.fastdfs.TestFast.testFastClient()  Time elapsed: 0 sec  <<< FAILURE!
+java.io.FileNotFoundException: E:\MYCODE\study\javaeecode\taotao\taotao-manager-web\src\main\resources\resource\fastdfs.conf (系统找不到指定的路径。)
 	at java.io.FileInputStream.open0(Native Method)
 	at java.io.FileInputStream.open(FileInputStream.java:195)
 	at java.io.FileInputStream.<init>(FileInputStream.java:138)
@@ -26,4 +26,44 @@ java.io.FileNotFoundException: E:\MYCODE\study\javaeecode\taotao\taotao-manager-
 	at org.csource.fastdfs.ClientGlobal.init(ClientGlobal.java:45)
 	at com.taotao.web.util.FastDFSClient.<init>(FastDFSClient.java:21)
 	at com.taotao.fastdfs.TestFast.testFastClient(TestFast.java:44)
+
+com.taotao.fastdfs.TestFast.testService()  Time elapsed: 4.098 sec  <<< FAILURE!
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'contentCategoryController': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire field: private com.taotao.content.service.ContentCategoryService com.taotao.controller.ContentCategoryController.service; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'contentCategoryService': FactoryBean threw exception on object creation; nested exception is java.lang.IllegalStateException: Failed to check the status of the service com.taotao.content.service.ContentCategoryService. No provider available for the service com.taotao.content.service.ContentCategoryService from the url zookeeper://192.168.37.129:2181/com.alibaba.dubbo.registry.RegistryService?application=taotao-manager-web&dubbo=2.5.3&interface=com.taotao.content.service.ContentCategoryService&methods=createContentCategory,updateContentCategory,deleteContentCategory,getContentCategoryList&pid=3696&revision=0.0.1-SNAPSHOT&side=consumer&timeout=30000&timestamp=1543155085467 to the consumer 192.168.37.1 use dubbo version 2.5.3
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:334)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1214)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:543)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:772)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:839)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:538)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:139)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:83)
+	at com.taotao.fastdfs.TestFast.testService(TestFast.java:50)
+Caused by: org.springframework.beans.factory.BeanCreationException: Could not autowire field: private com.taotao.content.service.ContentCategoryService com.taotao.controller.ContentCategoryController.service; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'contentCategoryService': FactoryBean threw exception on object creation; nested exception is java.lang.IllegalStateException: Failed to check the status of the service com.taotao.content.service.ContentCategoryService. No provider available for the service com.taotao.content.service.ContentCategoryService from the url zookeeper://192.168.37.129:2181/com.alibaba.dubbo.registry.RegistryService?application=taotao-manager-web&dubbo=2.5.3&interface=com.taotao.content.service.ContentCategoryService&methods=createContentCategory,updateContentCategory,deleteContentCategory,getContentCategoryList&pid=3696&revision=0.0.1-SNAPSHOT&side=consumer&timeout=30000&timestamp=1543155085467 to the consumer 192.168.37.1 use dubbo version 2.5.3
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:573)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:331)
+	... 31 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'contentCategoryService': FactoryBean threw exception on object creation; nested exception is java.lang.IllegalStateException: Failed to check the status of the service com.taotao.content.service.ContentCategoryService. No provider available for the service com.taotao.content.service.ContentCategoryService from the url zookeeper://192.168.37.129:2181/com.alibaba.dubbo.registry.RegistryService?application=taotao-manager-web&dubbo=2.5.3&interface=com.taotao.content.service.ContentCategoryService&methods=createContentCategory,updateContentCategory,deleteContentCategory,getContentCategoryList&pid=3696&revision=0.0.1-SNAPSHOT&side=consumer&timeout=30000&timestamp=1543155085467 to the consumer 192.168.37.1 use dubbo version 2.5.3
+	at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.doGetObjectFromFactoryBean(FactoryBeanRegistrySupport.java:175)
+	at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.getObjectFromFactoryBean(FactoryBeanRegistrySupport.java:103)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getObjectForBeanInstance(AbstractBeanFactory.java:1585)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:254)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1192)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1116)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1014)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:545)
+	... 33 more
+Caused by: java.lang.IllegalStateException: Failed to check the status of the service com.taotao.content.service.ContentCategoryService. No provider available for the service com.taotao.content.service.ContentCategoryService from the url zookeeper://192.168.37.129:2181/com.alibaba.dubbo.registry.RegistryService?application=taotao-manager-web&dubbo=2.5.3&interface=com.taotao.content.service.ContentCategoryService&methods=createContentCategory,updateContentCategory,deleteContentCategory,getContentCategoryList&pid=3696&revision=0.0.1-SNAPSHOT&side=consumer&timeout=30000&timestamp=1543155085467 to the consumer 192.168.37.1 use dubbo version 2.5.3
+	at com.alibaba.dubbo.config.ReferenceConfig.createProxy(ReferenceConfig.java:420)
+	at com.alibaba.dubbo.config.ReferenceConfig.init(ReferenceConfig.java:300)
+	at com.alibaba.dubbo.config.ReferenceConfig.get(ReferenceConfig.java:138)
+	at com.alibaba.dubbo.config.spring.ReferenceBean.getObject(ReferenceBean.java:65)
+	at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.doGetObjectFromFactoryBean(FactoryBeanRegistrySupport.java:168)
+	... 41 more
 

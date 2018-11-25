@@ -8,11 +8,6 @@
 	</parent>
 	<artifactId>taotao-manager-interface</artifactId>
 	<dependencies>
-		<dependency>
-			<groupId>com.taotao</groupId>
-			<artifactId>taotao-common</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
 		<!-- 依赖taotao-manager-pojo -->
 		<dependency>
 			<groupId>com.taotao</groupId>

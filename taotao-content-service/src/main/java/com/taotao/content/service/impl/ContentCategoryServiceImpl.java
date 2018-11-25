@@ -78,13 +78,13 @@ public class ContentCategoryServiceImpl implements ContentCategoryService {
 	}
 	@Override
 	public TaotaoResult deleteContentCategory(Long id) {
-		TbContentCategory tb = mapper.selectByPrimaryKey(id);
+		/*TbContentCategory tb = mapper.selectByPrimaryKey(id);
 		if (tb.getIsParent()==true) {
 			return TaotaoResult.build(200, "failure");
 		}else {
 			Long parentId=tb.getParentId();
 			mapper.deleteByPrimaryKey(id);
-			List<TbContentCategory> isChange = mapper.selectByParentId(parentId);
+			List<TbContentCategory> isChange = mapper.selectByPrimaryKey(parentId);
 			System.out.println(isChange);
 			if (isChange.size()==0 || isChange.isEmpty()==true) {
 				tb = new TbContentCategory();
@@ -93,7 +93,8 @@ public class ContentCategoryServiceImpl implements ContentCategoryService {
 				mapper.updateByPrimaryKeySelective(tb);
 			}
 			return TaotaoResult.ok(tb);
-		}
+		}*/
+		return null;
 		
 	}
 
