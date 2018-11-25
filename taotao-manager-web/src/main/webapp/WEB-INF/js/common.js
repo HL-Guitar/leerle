@@ -27,7 +27,8 @@ var TT = TAOTAO = {
 		//指定上传文件请求的url。
 		uploadJson : '/pic/upload',
 		//上传类型，分别为image、flash、media、file
-		dir : "image"
+		dir : "image",
+		imageSizeLimit:"5MB"
 	},
 	// 格式化时间
 	formatDateTime : function(val,row){
@@ -113,9 +114,11 @@ var TT = TAOTAO = {
     		//将元素变成jquery的对象
     		var _ele = $(e);
     		if(data && data.cid){
+    			alert(1);
     			_ele.after("<span style='margin-left:10px;'>"+data.cid+"</span>");
     		}else{
     			//在jquery对象的元素后插入内容
+    			alert(2);
     			_ele.after("<span style='margin-left:10px;'></span>");
     		}
     		//添加对元素的selectItemCat 所在的元素绑定点击事件

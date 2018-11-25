@@ -11,9 +11,10 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<dependencies>
+	<!-- manager-interface接口 -->
 		<dependency>
 			<groupId>com.taotao</groupId>
-			<artifactId>taotao-common</artifactId>
+			<artifactId>taotao-search-interface</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<!-- manager-interface接口 -->
@@ -22,7 +23,7 @@
 			<artifactId>taotao-manager-interface</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-		<!-- content-interface接口 -->
+		<!-- content-interface -->
 		<dependency>
 			<groupId>com.taotao</groupId>
 			<artifactId>taotao-content-interface</artifactId>
@@ -77,20 +78,6 @@
 			<groupId>commons-fileupload</groupId>
 			<artifactId>commons-fileupload</artifactId>
 		</dependency>
-		<!-- 图片服务器FSDFS的java客户端 -->
-		<!-- https://mvnrepository.com/artifact/com.github.tobato/fastdfs-client -->
-		<!-- 图片服务器FSDFS的java客户端 -->
-		<!-- https://mvnrepository.com/artifact/com.github.tobato/fastdfs-client -->
-		<!-- https://mvnrepository.com/artifact/com.github.tobato/fastdfs-client -->
-		<!-- https://mvnrepository.com/artifact/com.github.tobato/fastdfs-client -->
-		<!-- https://mvnrepository.com/artifact/org.csource/fastdfs-client-java -->
-		<dependency>
-			<groupId>org.csource</groupId>
-			<artifactId>fastdfs-client-java</artifactId>
-			<version>1.27-RELEASE</version>
-		</dependency>
-
-
 		<!-- dubbo相关 -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
@@ -115,6 +102,17 @@
 			<groupId>com.github.sgroschupf</groupId>
 			<artifactId>zkclient</artifactId>
 		</dependency>
+		<!-- 图片服务器FSDFS的java客户端 -->
+		<dependency>
+			<groupId>org.csource</groupId>
+			<artifactId>fastdfs-client-java</artifactId>
+			<version>1.27-RELEASE</version>
+		</dependency>
+		<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<scope>test</scope>
+			</dependency>
 	</dependencies>
 	<build>
 		<plugins>

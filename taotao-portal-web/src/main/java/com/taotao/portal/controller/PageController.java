@@ -18,6 +18,7 @@ import com.taotao.portal.pojo.Ad1Node;
  * 展示首页
  * @title PageController.java
  * <p>description</p>
+ * <p>company: www.itheima.com</p>
  * @author ljh 
  * @version 1.0
  */
@@ -25,11 +26,11 @@ import com.taotao.portal.pojo.Ad1Node;
 public class PageController {
 	
 	@Autowired
-	private ContentService contentService;
+	private ContentService contentservice;
 	
 	@Value("${AD1_CATEGORY_ID}")
 	private Long categoryId;
-
+	
 	@Value("${AD1_HEIGHT_B}")
 	private String AD1_HEIGHT_B;
 	
@@ -47,12 +48,11 @@ public class PageController {
 	 */
 	//接收URL的请求http://localhost:8082/index.html
 	@RequestMapping("/index")
-	public String showIndex(Model model ){
+	public String showIndex(Model model){
 		//引入服务
 		//注入服务
 		//添加业务逻辑，根据内容分类的id 查询 内容列表
-		System.out.println(categoryId);
-		List<TbContent> contentlist = contentService.getContentListByCatId(categoryId);
+		List<TbContent> contentlist = contentservice.getContentListByCatId(categoryId);
 		//转成自定义的POJO   AD1NOde的列表
 		List<Ad1Node> nodes = new ArrayList<>();
 		for (TbContent tbContent : contentlist) {
@@ -67,8 +67,9 @@ public class PageController {
 			node.setWidthB(AD1_WIDTH_B);
 			nodes.add(node);
 		}
-		//传递数据给jsp
+		//传递数据给JSP
 		model.addAttribute("ad1", JsonUtils.objectToJson(nodes));
 		return "index";//响应jsp
 	}
+	
 }

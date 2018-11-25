@@ -4,7 +4,7 @@ package com.taotao.portal.pojo;
  * @title Ad1Node.java
  * <p>description</p>
  * <p>company: www.itheima.com</p>
- * @author hl 
+ * @author ljh 
  * @version 1.0
  */
 public class Ad1Node {

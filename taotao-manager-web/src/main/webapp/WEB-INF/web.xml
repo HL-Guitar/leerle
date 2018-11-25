@@ -2,9 +2,9 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
   <display-name>taotao-manager-web</display-name>
   <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
     <welcome-file>default.html</welcome-file>
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
@@ -40,6 +40,8 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>taotao-manager-web</servlet-name>
+		<!-- /* 表示拦截所有，包括转发的Jsp页面    这是错误的，不能用-->
+		<!--  / 表示拦截所有的静态资源，不包括转发JSP -->
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
   

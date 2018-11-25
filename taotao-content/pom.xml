@@ -14,7 +14,7 @@
   	<module>taotao-content-service</module>
   </modules>
   <dependencies>
-		<!-- 依赖taotao-manager-pojo -->
+		<!-- 依赖taotao-manager-common -->
 		<dependency>
 			<groupId>com.taotao</groupId>
 			<artifactId>taotao-common</artifactId>

@@ -14,7 +14,7 @@ import com.taotao.service.ItemCatService;
 @Controller
 public class ItemCatController {
 	@Autowired
-	private ItemCatService itemcatservice;
+	private ItemCatService catservice;
 	//url:'/item/cat/list',
 	//参数：id
 	//返回值：json
@@ -25,7 +25,7 @@ public class ItemCatController {
 		//1.引入服务
 		//2.注入服务
 		//3.调用方法
-		List<EasyUITreeNode> list = itemcatservice.getItemCatListByParentId(parentId);
+		List<EasyUITreeNode> list = catservice.getItemCatListByParentId(parentId);
 		return list;
 	}
 }
