@@ -11,7 +11,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<dependencies>
-	<!-- manager-interface接口 -->
+		<!-- manager-interface接口 -->
 		<dependency>
 			<groupId>com.taotao</groupId>
 			<artifactId>taotao-search-interface</artifactId>
@@ -103,16 +103,17 @@
 			<artifactId>zkclient</artifactId>
 		</dependency>
 		<!-- 图片服务器FSDFS的java客户端 -->
+		<!-- https://mvnrepository.com/artifact/org.csource/fastdfs-client-java -->
 		<dependency>
 			<groupId>org.csource</groupId>
 			<artifactId>fastdfs-client-java</artifactId>
 			<version>1.27-RELEASE</version>
 		</dependency>
 		<dependency>
-				<groupId>junit</groupId>
-				<artifactId>junit</artifactId>
-				<scope>test</scope>
-			</dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>

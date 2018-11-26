@@ -56,7 +56,7 @@ public class SearchDao {
 			item.setCategory_name(solrDocument.get("item_category_name").toString());
 			item.setId(Long.parseLong(solrDocument.get("id").toString()));
 			item.setImage(solrDocument.get("item_image").toString());
-			//item.setItem_desc(item_desc);
+			//item.setItem_desc(item_desc);  //排序
 			item.setPrice((Long)solrDocument.get("item_price"));
 			item.setSell_point(solrDocument.get("item_sell_point").toString());
 			//取高亮

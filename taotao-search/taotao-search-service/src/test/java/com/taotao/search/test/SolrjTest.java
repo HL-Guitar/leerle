@@ -14,7 +14,7 @@ public class SolrjTest {
 	@Test
 	public void add() throws Exception{
 		//1.创建solrserver   建立连接 需要指定地址
-		SolrServer solrServer = new HttpSolrServer("http://192.168.25.154:8080/solr");
+		SolrServer solrServer = new HttpSolrServer("http://192.168.37.129:8080/solr");
 		//2.创建solrinputdocument
 		SolrInputDocument document = new SolrInputDocument();
 		
@@ -31,13 +31,13 @@ public class SolrjTest {
 	@Test
 	public void testquery() throws Exception{
 		//1.创建solrserver对象
-		SolrServer solrServer = new HttpSolrServer("http://192.168.25.154:8080/solr");
+		SolrServer solrServer = new HttpSolrServer("http://192.168.37.129:8080/solr");
 		//2.创建solrquery对象   设置各种过滤条件，主查询条件 排序
 		SolrQuery query = new SolrQuery();
 		//3.设置查询的条件
-		query.setQuery("阿尔卡特");
-		query.addFilterQuery("item_price:[0 TO 300000000]");
-		query.set("df", "item_title");
+		query.setQuery("阿尔卡特");//主查询条件
+		query.addFilterQuery("item_price:[0 TO 300000000]");//0元到30000
+		query.set("df", "item_title"); //item_title：阿尔卡特
 		//4.执行查询
 		QueryResponse response = solrServer.query(query);
 		//5.获取结果集
