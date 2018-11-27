@@ -24,13 +24,13 @@ public class SearchController {
 	 * @return
 	 */
 	@RequestMapping("/search")
-	public String search(Integer page,@RequestParam(value="q") String queryString,Model model) throws Exception{
+	public String search(@RequestParam(defaultValue="1")Integer page,@RequestParam(value="q") String queryString,Model model) throws Exception{
 		//1.引入
 		//2.注入
 		//3.调用
 		//处理乱码：
 		queryString = new String(queryString.getBytes("iso-8859-1"),"utf-8");
-		
+		System.out.println(queryString);
 		SearchResult result = service.search(queryString, page, ITEM_ROWS);
 		//4.设置数据传递到jsp中
 		model.addAttribute("query", queryString);

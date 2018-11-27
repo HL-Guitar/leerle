@@ -16,7 +16,7 @@ import com.taotao.service.ItemService;
 import com.taotao.web.util.FastDFSClient;
 
 public class TestFast {
-	@Test
+	//@Test
 	public void testupload()throws Exception{
 		//1.创建一个配置文件  配置连接tracker的服务器地址
 		//2.初始化加载配置文件
@@ -40,13 +40,13 @@ public class TestFast {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void testFastClient() throws Exception{
 		FastDFSClient client = new FastDFSClient("C:/Users/ThinkPad/workspace-taotao-02/taotao-manager-web/src/main/resources/resource/fastdfs.conf");
 		String uploadFile = client.uploadFile("C:/Users/Public/Pictures/Sample Pictures/Chrysanthemum.jpg", "jpg");
 		System.out.println(uploadFile);
 	} 
-	@Test
+	//@Test
 	public void testService(){
 		ApplicationContext context = new ClassPathXmlApplicationContext("classpath:spring/springmvc.xml");
 		ItemService itemservice = (ItemService)context.getBean("itemService");
