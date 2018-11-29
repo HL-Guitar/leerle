@@ -5,7 +5,15 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.annotation.Resource;
+import javax.jms.Destination;
+import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.Session;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.core.JmsTemplate;
+import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Service;
 
 import com.github.pagehelper.PageHelper;
@@ -22,10 +30,14 @@ import com.taotao.service.ItemService;
 
 @Service
 public class ItemServiceImpl implements ItemService {
-@Autowired
-private TbItemMapper mapper;
-@Autowired
-private TbItemDescMapper descmapper;
+	@Autowired
+	private JmsTemplate jmstemplate;
+	@Resource(name="topicDestination")
+	private Destination destination;
+	@Autowired
+	private TbItemMapper mapper;
+	@Autowired
+	private TbItemDescMapper descmapper;
 	@Override
 	public EasyUIDataGridResult getItemList(Integer page, Integer rows) {
 		//1.设置分页的信息 使用pagehelper
@@ -43,13 +55,14 @@ private TbItemDescMapper descmapper;
 		EasyUIDataGridResult result = new EasyUIDataGridResult();
 		result.setTotal((int)info.getTotal());
 		result.setRows(info.getList());
+
 		//7.返回
 		return result;
 	}
 	@Override
 	public TaotaoResult saveItem(TbItem item, String desc) {
 		//生成商品的id
-		long itemId = IDUtils.genItemId();
+		final long itemId = IDUtils.genItemId();
 		//1.补全item 的其他属性
 		item.setId(itemId);
 		item.setCreated(new Date());
@@ -65,10 +78,36 @@ private TbItemDescMapper descmapper;
 		desc2.setCreated(item.getCreated());
 		desc2.setUpdated(item.getCreated());
 		//4.插入商品描述数据
-			//注入tbitemdesc的mapper
+		//注入tbitemdesc的mapper
 		descmapper.insertSelective(desc2);
+	    jmstemplate.send(destination,new MessageCreator() {
+			
+			@Override
+			public Message createMessage(Session session) throws JMSException {
+				System.out.println("发送更新索引消息");
+				//发送的消息
+				return session.createTextMessage(itemId+"");
+			}
+		});
 		//5.返回taotaoresult
 		return TaotaoResult.ok();
+	}
+	@Override
+	public TbItem getItemById(Long itemId) {
+		//注入mapper
+		//调用方法
+//		TbItemExample example = new TbItemExample();
+//		Criteria criteria = example.createCriteria();
+//		criteria.andid
+		TbItem tbItem = mapper.selectByPrimaryKey(itemId);
+		//返回tbitem
+		
+		return tbItem;
+	}
+
+	@Override
+	public TbItemDesc getItemDescById(Long itemId) {
+		return descmapper.selectByPrimaryKey(itemId);
 	}
 
 }

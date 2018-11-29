@@ -30,7 +30,6 @@ public class SearchController {
 		//3.调用
 		//处理乱码：
 		queryString = new String(queryString.getBytes("iso-8859-1"),"utf-8");
-		System.out.println(queryString);
 		SearchResult result = service.search(queryString, page, ITEM_ROWS);
 		//4.设置数据传递到jsp中
 		model.addAttribute("query", queryString);
