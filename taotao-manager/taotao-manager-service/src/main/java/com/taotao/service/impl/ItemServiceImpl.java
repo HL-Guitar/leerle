@@ -12,15 +12,19 @@ import javax.jms.Message;
 import javax.jms.Session;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Service;
+import org.apache.commons.lang3.StringUtils;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.taotao.common.pojo.EasyUIDataGridResult;
 import com.taotao.common.pojo.TaotaoResult;
 import com.taotao.common.util.IDUtils;
+import com.taotao.common.util.JsonUtils;
+import com.taotao.manager.jedis.JedisClient;
 import com.taotao.mapper.TbItemDescMapper;
 import com.taotao.mapper.TbItemMapper;
 import com.taotao.pojo.TbItem;
@@ -31,13 +35,23 @@ import com.taotao.service.ItemService;
 @Service
 public class ItemServiceImpl implements ItemService {
 	@Autowired
-	private JmsTemplate jmstemplate;
-	@Resource(name="topicDestination")
-	private Destination destination;
-	@Autowired
 	private TbItemMapper mapper;
 	@Autowired
 	private TbItemDescMapper descmapper;
+	@Autowired
+	private JedisClient client;
+
+	@Autowired
+	private JmsTemplate jmstemplate;
+
+	@Resource(name = "topicDestination")
+	private Destination destination;
+
+	@Value("${ITEM_INFO_KEY}")
+	private String ITEM_INFO_KEY;
+
+	@Value("${ITEM_INFO_KEY_EXPIRE}")
+	private Integer ITEM_INFO_KEY_EXPIRE;
 	@Override
 	public EasyUIDataGridResult getItemList(Integer page, Integer rows) {
 		//1.设置分页的信息 使用pagehelper
@@ -80,8 +94,8 @@ public class ItemServiceImpl implements ItemService {
 		//4.插入商品描述数据
 		//注入tbitemdesc的mapper
 		descmapper.insertSelective(desc2);
-	    jmstemplate.send(destination,new MessageCreator() {
-			
+		jmstemplate.send(destination,new MessageCreator() {
+
 			@Override
 			public Message createMessage(Session session) throws JMSException {
 				System.out.println("发送更新索引消息");
@@ -94,14 +108,39 @@ public class ItemServiceImpl implements ItemService {
 	}
 	@Override
 	public TbItem getItemById(Long itemId) {
-		//注入mapper
-		//调用方法
-//		TbItemExample example = new TbItemExample();
-//		Criteria criteria = example.createCriteria();
-//		criteria.andid
+		// 添加缓存
+
+		// 1.从缓存中获取数据，如果有直接返回
+		try {
+			String jsonstr = client.get(ITEM_INFO_KEY + ":" + itemId + ":BASE");
+
+			if (StringUtils.isNotBlank(jsonstr)) {
+				// 重新设置商品的有效期
+				client.expire(ITEM_INFO_KEY + ":" + itemId + ":BASE", ITEM_INFO_KEY_EXPIRE);
+				return JsonUtils.jsonToPojo(jsonstr, TbItem.class);
+
+			}
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
+		// 2如果没有数据
+
+		// 注入mapper
+		// 调用方法
 		TbItem tbItem = mapper.selectByPrimaryKey(itemId);
-		//返回tbitem
-		
+		// 返回tbitem
+
+		// 3.添加缓存到redis数据库中
+		// 注入jedisclient
+		// ITEM_INFO:123456:BASE
+		// ITEM_INFO:123456:DESC
+		try {
+			client.set(ITEM_INFO_KEY + ":" + itemId + ":BASE", JsonUtils.objectToJson(tbItem));
+			// 设置缓存的有效期
+			client.expire(ITEM_INFO_KEY + ":" + itemId + ":BASE", ITEM_INFO_KEY_EXPIRE);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return tbItem;
 	}
 
