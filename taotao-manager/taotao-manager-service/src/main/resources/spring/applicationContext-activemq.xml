@@ -19,11 +19,7 @@
 	<bean class="org.springframework.jms.core.JmsTemplate">
 		<property name="connectionFactory" ref="connectionFactory"></property>
 	</bean>
-	<!-- <bean id="queueDestination" class="org.apache.activemq.command.ActiveMQQueue">
-		<constructor-arg name="name" value="item-change-queue"></constructor-arg>
-	</bean> -->
 	<bean id="topicDestination" class="org.apache.activemq.command.ActiveMQTopic">
 		<constructor-arg name="name" value="item-change-topic"></constructor-arg>
 	</bean>
-	
 </beans>
