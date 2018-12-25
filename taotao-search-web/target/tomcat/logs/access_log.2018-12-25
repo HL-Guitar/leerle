@@ -1,0 +1,5 @@
+0:0:0:0:0:0:0:1 - - [25/Dec/2018:14:36:47 +0800] "GET /search.html?q=%E6%89%8B%E6%9C%BA HTTP/1.1" 200 9450 http-bio-8085-exec-3 9588
+0:0:0:0:0:0:0:1 - - [25/Dec/2018:14:43:29 +0800] "GET /search.html?q=%E6%89%8B%E6%9C%BA HTTP/1.1" 200 64950 http-bio-8085-exec-10 5113
+0:0:0:0:0:0:0:1 - - [25/Dec/2018:14:43:44 +0800] "GET /search.html?q=%E6%89%8B%E6%9C%BA HTTP/1.1" 200 64950 http-bio-8085-exec-8 306
+0:0:0:0:0:0:0:1 - - [25/Dec/2018:14:43:56 +0800] "GET /search.html?q=%E6%B7%98%E6%B7%98 HTTP/1.1" 200 19585 http-bio-8085-exec-8 218
+0:0:0:0:0:0:0:1 - - [25/Dec/2018:15:36:48 +0800] "GET /cart/cart.html HTTP/1.1" 404 949 http-bio-8085-exec-9 101
